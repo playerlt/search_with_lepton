@@ -333,7 +333,7 @@ class RAG(Photon):
             # KV here.
             "KV_NAME": "search-with-lepton",
             # If set to true, will generate related questions. Otherwise, will not.
-            "RELATED_QUESTIONS": "true",
+            "RELATED_QUESTIONS": "false",
             # On the lepton platform, allow web access when you are logged in.
             "LEPTON_ENABLE_AUTH_BY_COOKIE": "true",
         },
