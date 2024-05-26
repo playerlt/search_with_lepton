@@ -4,6 +4,8 @@ import json
 import os
 import re
 import threading
+import uuid
+
 import requests
 import traceback
 from typing import Annotated, List, Generator, Optional
@@ -136,6 +138,10 @@ def search_with_google(query: str, subscription_key: str, cx: str):
     json_content = response.json()
     try:
         contexts = json_content["items"][:REFERENCE_COUNT]
+        for item in contexts:
+            item['url']=item['link']
+            item['name']=item['title']
+            item['id']=str(uuid.uuid4())
     except KeyError:
         logger.error(f"Error encountered: {json_content}")
         return []
